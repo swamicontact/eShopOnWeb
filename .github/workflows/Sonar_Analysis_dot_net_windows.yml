@@ -51,7 +51,7 @@ jobs:
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
 #          .\.sonar\scanner\dotnet-sonarscanner begin /k:"tamilselvansellamuthu_eShopOnWeb" /o:"tamilselvansellamuthu" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
 
-     #To build dotnet application using MSBuild
+     #Add msbuild to PATH
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v1.0.2
   
