@@ -46,7 +46,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"tamilselvansellamuthu_eShopOnWeb" /o:"tamilselvansellamuthu" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="http://35.188.189.90:9000/"
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"tamilselvansellamuthu_eShopOnWeb" /o:"tamilselvansellamuthu" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
           dotnet build "eShopOnWeb.sln"
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
 #          .\.sonar\scanner\dotnet-sonarscanner begin /k:"tamilselvansellamuthu_eShopOnWeb" /o:"tamilselvansellamuthu" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
