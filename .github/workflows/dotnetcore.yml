@@ -4,9 +4,9 @@ name: Sample eShopOnWeb dot net workflow
 #Workflow starts when below events occurs. Ex. code pushed to main branch or pull_request raised to main branch.
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 #Set of Job(s) runs for the event. Ex. build is a job.
 jobs:
