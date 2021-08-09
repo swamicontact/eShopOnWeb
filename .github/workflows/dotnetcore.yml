@@ -34,15 +34,3 @@ jobs:
     #To Run application tests
     - name: Test
       run: dotnet test ./eShopOnWeb.sln --no-build --verbosity normal
-    
-    #To Packackage dotnet Application
-    - name: Package
-      run: dotnet pack ./eShopOnWeb.sln --configuration Release
-      
-    #To Add nuget artifacts repository as source to push artifacts.
-    - name: AddSource
-      run: dotnet nuget add source "https://nuget.pkg.github.com/tamilselvansellamuthu/index.json" -n "github" 
-      
-    #To Push nuget package to artifacts repository using GitHub Secrets.
-    - name: Push
-      run: dotnet nuget push "/home/runner/work/eShopOnWeb/eShopOnWeb/src/*/bin/Release/*.nupkg"  --api-key ${{ secrets.TOKEN_GITHUB }} --source "github"
