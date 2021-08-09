@@ -4,6 +4,8 @@
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>BlazorShared</RootNamespace>
     <AssemblyName>BlazorShared</AssemblyName>
+    <IsPackable>true</IsPackable>
+    <RepositoryUrl>https://github.com/tamilselvansellamuthu/eShopOnWeb</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
