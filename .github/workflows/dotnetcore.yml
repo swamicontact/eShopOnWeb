@@ -28,12 +28,12 @@ jobs:
         dotnet-version: 5.0.x
 
     #To build dotnet application using MSBuild
-    - name: Build
-      run: dotnet build ./eShopOnWeb.sln
+    #- name: Build
+    #  run: dotnet build ./eShopOnWeb.sln
       
     #To Run application tests
-    - name: Test
-      run: dotnet test ./eShopOnWeb.sln --no-build --verbosity normal
+    #- name: Test
+    #  run: dotnet test ./eShopOnWeb.sln --no-build --verbosity normal
 
     #To build dotnet application using MSBuild
     - name: Add msbuild to PATH
