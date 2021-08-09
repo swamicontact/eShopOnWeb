@@ -58,3 +58,4 @@ jobs:
      #To build dotnet application using MSBuild
       - name: Build
         run: msbuild ./eShopOnWeb.sln
+#
