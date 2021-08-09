@@ -45,4 +45,4 @@ jobs:
       
     #To Push nuget package to artifacts repository using GitHub Secrets.
     - name: Push
-      run: dotnet nuget push "bin/Release/*.nupkg"  --api-key ${{ secrets.TOKEN_GITHUB }} --source "github"
+      run: dotnet nuget push "/home/runner/work/eShopOnWeb/eShopOnWeb/src/*/bin/Release/*.nupkg"  --api-key ${{ secrets.TOKEN_GITHUB }} --source "github"
