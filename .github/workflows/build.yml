@@ -40,14 +40,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"tamilselvansellamuthu_eShopOnWeb" /d:sonar.login="${{ secrets.SONAR_COMMUNITY_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_COMMUNITY_HOST_URL }}"
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"swamicontact_eShopOnWeb" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
           dotnet build "eShopOnWeb.sln"
-          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_COMMUNITY_TOKEN }}"
-          
-     #Add msbuild to PATH
-      - name: Add msbuild to PATH
-        uses: microsoft/setup-msbuild@v1.0.2
-  
-     #To build dotnet application using MSBuild
-      - name: Build
-        run: msbuild ./eShopOnWeb.sln
+          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
