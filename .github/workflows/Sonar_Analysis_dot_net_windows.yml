@@ -1,4 +1,3 @@
-'''
 name: Sonar_Analysis_dot_net_windows
 on:
   push:
