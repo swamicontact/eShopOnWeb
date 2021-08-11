@@ -55,7 +55,27 @@ jobs:
 #To Add nuget artifacts repository as source to push artifacts.
       - name: AddSource
         run: dotnet nuget add source "http://34.121.17.239:8081/repository/nuget-hosted/index.json" --name "nexus" --username  ${{ secrets.WINDOWS_NEXUS_UN }} --password ${{ secrets.WINDOWS_NEXUS_PW }}
-      
-    #To Push nuget package to artifacts repository using GitHub Secrets.
-    #  -  name: Push
-         # run: dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg"  --api-key ${{ secrets.WINDOWS_NEXUS_API }} --source "nexus"  
+            
+#To Packackage dotnet Application
+      - name: Package
+        run: |
+          dotnet pack .\src\ApplicationCore --configuration Release
+          dotnet pack .\src\BlazorAdmin --configuration Release
+          dotnet pack .\src\BlazorShared --configuration Release
+          dotnet pack .\src\Infrastructure --configuration Release
+          dotnet pack .\src\PublicApi --configuration Release
+          dotnet pack .\src\Web --configuration Release
+ 
+ #To Push nuget package to artifacts repository using GitHub Secrets.
+      - name: Push
+        run: |
+          dotnet nuget push "src\ApplicationCore\bin\Release\ApplicationCore.1.0.0.nupkg"  --api-key ${{ secrets.WINDOWS_NEXUS_API }} --source "nexus"
+          dotnet nuget push "src\BlazorAdmin\bin\Release\BlazorAdmin.1.0.0.nupkg"  --api-key ${{ secrets.WINDOWS_NEXUS_API }} --source "nexus"
+          dotnet nuget push "src\BlazorShared\bin\Release\BlazorShared.1.0.0.nupkg"  --api-key ${{ secrets.WINDOWS_NEXUS_API }} --source "nexus"
+          dotnet nuget push "src\Infrastructure\bin\Release\Infrastructure.1.0.0.nupkg"  --api-key ${{ secrets.WINDOWS_NEXUS_API }} --source "nexus"
+          dotnet nuget push "src\PublicApi\bin\Release\PublicApi.1.0.0.nupkg"  --api-key ${{ secrets.WINDOWS_NEXUS_API }} --source "nexus"
+          dotnet nuget push "src\Web\bin\Release\Web.1.0.0.nupkg"  --api-key ${{ secrets.WINDOWS_NEXUS_API }} --source "nexus"
+  
+#To Push nuget package to artifacts repository using GitHub Secrets.
+#  -  name: Push
+# run: dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg"  --api-key ${{ secrets.WINDOWS_NEXUS_API }} --source "nexus"  
