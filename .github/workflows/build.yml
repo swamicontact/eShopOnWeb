@@ -51,3 +51,11 @@ jobs:
 #To build dotnet application using MSBuild
       - name: Build
         run: msbuild ./eShopOnWeb.sln
+
+#To Add nuget artifacts repository as source to push artifacts.
+      - name: AddSource
+        run: dotnet nuget add source "http://34.133.25.133:8081/repository/nuget-hosted/index.json" --name "nexus" --username  ${{ secrets.WINDOWS_NEXUS_UN }} --password ${{ secrets.WINDOWS_NEXUS_PW }}
+      
+    #To Push nuget package to artifacts repository using GitHub Secrets.
+    #  -  name: Push
+         # run: dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg"  --api-key ${{ secrets.WINDOWS_NEXUS_API }} --source "nexus"
